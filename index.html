@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Digital Notice Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-row">
+      <div>
+        <h1>B.Tech Digital Notice Board</h1>
+        <p>Official circulars, exam schedules, and placement cell updates</p>
+      </div>
+      <button id="toggleFormBtn" class="post-btn">+ Post Notice</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- New Notice Form (Hidden by default) -->
+    <form id="noticeForm" class="notice-form hidden">
+      <h3>Publish New Circular</h3>
+      <div class="form-row">
+        <input type="text" id="nTitle" placeholder="Notice Title" required />
+        <select id="nCat">
+          <option value="Academics">Academics</option>
+          <option value="Examinations">Examinations</option>
+          <option value="Events">Events</option>
+          <option value="Scholarship">Scholarship</option>
+        </select>
+        <label class="pin-check"><input type="checkbox" id="nImportant" /> Pin as Urgent</label>
+      </div>
+      <textarea id="nDesc" rows="2" placeholder="Notice details or circular reference..." required></textarea>
+      <button type="submit" class="save-btn">Publish to Board</button>
+    </form>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <input type="text" id="searchNotice" placeholder="Filter by keyword..." />
+      <div class="cat-buttons" id="catButtons">
+        <button class="active" data-cat="All">All</button>
+        <button data-cat="Academics">Academics</button>
+        <button data-cat="Examinations">Examinations</button>
+        <button data-cat="Events">Events</button>
+        <button data-cat="Scholarship">Scholarship</button>
+      </div>
+    </div>
+
+    <div id="boardGrid" class="board-grid"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
